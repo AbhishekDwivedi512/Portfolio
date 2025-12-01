@@ -24,17 +24,17 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const API_URL = "https://portfolio-backend-eb1a.onrender.com";
+   
 
     try {
-      await fetch(`${API_URL}/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+      const response = await fetch('https://portfolio-backend-eb1a.onrender.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      
-      
-      
+
       const data = await response.json();
 
       if (data.success) {
