@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, ExternalLink } from 'lucide-react';
 
+
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+await resend.emails.send({
+  from: 'portfolio@yourdomain.com',
+  to: 'your-email@gmail.com',
+  subject: 'New message',
+  html: '<p>Hello</p>',
+});
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -24,7 +36,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/contact', {
+      const response = await fetch('https://portfolio-backend-eb1a.onrender.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

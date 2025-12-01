@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Sun, Moon, ArrowUp } from 'lucide-react';
 import Hero from './Hero';
-
+import About from './About';
+import Skills from './Skills';
+import Projects from './Projects';
+import Contact from './Contact';
 
 const Home = () => {
   const [isDark, setIsDark] = useState(false);
