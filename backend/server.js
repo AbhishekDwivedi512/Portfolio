@@ -10,6 +10,16 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
 
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+await resend.emails.send({
+  from: 'portfolio@yourdomain.com',
+  to: 'your-email@gmail.com',
+  subject: 'New message',
+  html: '<p>Hello</p>',
+});
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
