@@ -40,7 +40,7 @@ const Contact = () => {
       if (data.success) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
-        setTimeout(() => setIsSubmitted(false), 5000);
+        setTimeout(() => setIsSubmitted(false), 10000);
       } else {
         alert('Failed to send message. Please try again.');
       }

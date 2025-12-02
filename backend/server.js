@@ -6,11 +6,11 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-
+// Email Transporter Setup
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -19,6 +19,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+// Verify transporter connection
 transporter.verify((error, success) => {
     if (error) {
         console.log('Error connecting to email service:', error);
@@ -27,13 +28,13 @@ transporter.verify((error, success) => {
     }
 });
 
-
+// Contact Route
 app.post('/api/contact', async (req, res) => {
     const { name, email, subject, message } = req.body;
 
     const mailOptions = {
         from: email,
-        to: process.env.EMAIL_USER, 
+        to: process.env.EMAIL_USER, // Send to yourself
         subject: `Portfolio Contact: ${subject}`,
         html: `
       <h3>New Contact Form Submission</h3>
