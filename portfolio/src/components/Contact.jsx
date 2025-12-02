@@ -27,7 +27,7 @@ const Contact = () => {
    
 
     try {
-      const response = await fetch('https://portfolio-backend-eb1a.onrender.com', {
+      const response = await fetch('http://localhost:5001/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

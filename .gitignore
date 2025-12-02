@@ -3,6 +3,7 @@
 # ------------------------------
 backend/node_modules/
 portfolio/node_modules/
+PORTFOLIO/portfolio
 
 # ------------------------------
 # Environment Files
