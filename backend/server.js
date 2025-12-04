@@ -1,3 +1,4 @@
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
@@ -59,3 +60,12 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
+import { Resend } from "resend";
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+await resend.emails.send({
+  from: 'Your Name <onboarding@resend.dev>',
+  to: '...',
+  subject: 'Contact Form',
+  html: '<p>Message</p>'
+});
